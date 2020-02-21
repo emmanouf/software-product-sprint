@@ -17,7 +17,16 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['Do not just aspire to make a living, but aspire to make a difference.  -Denzel Washington',
+      'Hapiness lies in the joy of achievement and the thrill of creative effort.  -Franklin Roosevelt',
+      'Do not aim for success if you want it; just do what you love and believe in, and it will come naturally.  -David Frost',
+      'The key to success is to focus on goals, not obstacles.',
+      'Never give up because great things take time', 
+      'Love the people who saw you when you were invisible to everyone else',
+      'If you want to live a happy life, tie it to s goal, not to people or things. -Albert Einstein',
+      'Education is the most powerful weapon which you can use to change the world.  -Nelson Mandela',
+      'We must accept finite disappointment, but never lose infinite hope.  -Martin Luther King Jr.',
+      'To win big, you sometimes have to take big risks.  -Bill Gates'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
