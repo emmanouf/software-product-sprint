@@ -10,3 +10,31 @@ body {
   margin-top: 20px;
   font-size:130%;
 }
+img.resize {
+    max-width: 150%;
+    max-height: 150%;
+}
+fa:hover {
+  opacity: 0.7;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-github {
+  background: #394144;
+  color: white;
+}
+
+.fa-twitter {
+  background: #089ce0;
+  color: white;
+}
