@@ -7,12 +7,87 @@
     <script src="script.js"></script>
   </head>
   <body>
+      <center>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1 style="font-size:300%;">Hello! I'm Emmanuel Noufele </h1>
+      <img class="resize" src="images/image1.jpg"/>
+      <p style="font-size:300%;">This is my portfolio, and I hope you will enjoy reading about me. </p>
+      <h2 style="font-size:300%;">A summary of my story</h2>
+      <p style="font-size:200%;">I am originally from Cameroon, which is in Central Africa. I speak 
+          French as a first language and I emigrated to the United States four years ago with the dream to become an engineer. 
+          I was completely overwhelmed at first because I spoke almost no English. It wasn't straightforward 
+          for me to understand and talk to people.
+          However, in the Summer of 2015, I started with English as a second language (ESL) at 
+          Waubonsee Community College.
+          I completed the program one year later, and I graduated with my Associate Degree in computer science in May 2019. Now I am a junior student studying computer science at 
+          the University of Illinois at Urbana Champaign. I ended up choosing computer science because of my passion for technology and the desire 
+          I have to solve complex problems. In 2015, I was nominated to emigrate to the United States and continue my education; my mother, however, was hesitant. At first, she did not want me to go. 
+          She thought it would be hard to succeed in another country where another language was spoken. I reminded her of all she and my father taught me, and I convinced her I could succeed. 
+          I ended up coming to the United States where I continue to work hard to pursue my dream of becoming a software engineer.</p>
+           <h2 style="font-size:300%;"> Unique Moment</h2>
+          <p style="font-size:200%;"> Before transferring to the University of Illinois at Urbana - Champaign,
+              I was a student at Waubonsee Community College, where I graduated with An Associate Degree in Engineering science. This picture of me was the day of my graduation. 
+              This moment is unique to me because three years from that day, I would not imagine getting to that point, looking at my English language.</p>
+          <img src="images/image3.jpeg"/>
+          <h2 style="font-size:300%;"> Unique Leadership Experience</h2>
+          <p style="font-size:200%;"> While at Waubonsee Community College, I had the opportunity to be part of the Student Government, 
+              where I met great people and serve as a Senator for three semesters.</p>
+          <img class="resize" src="images/image5.jpg"/>
+           <h2 style="font-size:300%;"> What I do during my free time!</h2>
+          <p style="font-size:200%;"> During my free time, I enjoy watching soccer and also giving back to my Community. I spent the past two spring breaks volunteering with non-profit organizations. 
+              In 2018, I spent my spring break with 13 other students in Louisville, Kentucky, volunteering with Habitat for Humanity in Richmond, Kentucky, building safe, affordable housing, and learning about substandard living conditions. 
+              In 2019, we did the same thing, but in Houston, Texas, with All Hands and Hearts in Houston, Texas, helping with Hurricane Harvey recovery. </p>
+          <h2 style="font-size:200%;"> 2018 and 2019 Pictures!</h2>
+           <title>change picture</title>
+      <script type = "text/javascript">
+          function displayNextImage() {
+              x = (x === images.length - 1) ? 0 : x + 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function displayPreviousImage() {
+              x = (x <= 0) ? images.length - 1 : x - 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function startTimer() {
+              setInterval(displayNextImage, 4000);
+          }
+
+          var images = [], x = -1;
+          images[0] = "images/image10.jpg";
+          images[1] = "images/image2.jpg";
+          images[2] = "images/image3.jpg";
+          images[3] = "images/image4.jpg";
+          images[4] = "images/image6.jpeg";
+          images[5] = "images/image9.jpg";
+      </script>
+      <body onload = "startTimer()">
+       <img class="resize" id="img" src="images/image10.jpg"/>
+       <button style="font-size:200%;" type="button" onclick="displayPreviousImage()">Previous</button>
+       <button style="font-size:200%;" type="button" onclick="displayNextImage()">Next</button>
+   </body>
+   <h2 style="font-size:300%;"> Projects I have worked on...</h2>
+          <p style="font-size:200%;">I have worked on a number of small projects where I :
+              <ul>
+                <li style="font-size:200%;">Graph Programming: where I implemented a directed graph in C++ using a graph data structure to implement the depth and breath first traversal algorithm for a flight ticket search application</li>
+                <li style="font-size:200%;">Temperature Controlled System: where I designed a temperature-controlled system using Adruino kit and Python to successfully turn on and off 12-volt fan by detecting the surrounding temperature</li>
+                <li style="font-size:200%;">Waubonsee Quiz Android Application: where I created an Android Application with Android Studio and Java for new students to get to know Waubonsee Community College</li>
+                <li style="font-size:200%;">Database Management: where I developed a code in Python with the goal to retrive stored data from the course intructor database so it can be displayed on a dashboard</li>
+            </ul>
+          </p>
+          <h2 style="font-size:300%;"> People Who inspire me </h2>
+          <p style="font-size:200%;"> Denzel Washington has been a source of inspiration for me since I emigrated to the United States. 
+              I used to watch his movies and speeches to motivate myself and continue to work hard to reach my dream. 
+              What I learn from him is not to be afraid to fail big, dream big, and have goals that we must apply Discipline and consistency to achieve. </p>
+          <img  src="images/image7.jpg"/>
+      <p style="font-size:200%;">Click here to see some of my favourite quotes!</p>
+      <button style="font-size:200%;", onclick="addRandomGreeting()">Motivate Me! </button>
+      <div style="font-size:200%;" id="greeting-container"></div>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="https://www.linkedin.com/in/emmanuel-noufele-045657135/"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/emmanouf"><i class="ion-social-github"><i class="fa fa-github"></i></a>
     </div>
+    </center>
   </body>
 </html>
