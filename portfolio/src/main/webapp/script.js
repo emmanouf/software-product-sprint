@@ -35,3 +35,15 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function getRandomQuotes() {
+  fetch('/data').then(response => response.text()).then((quote) => {
+    document.getElementById('quote-container').innerText = quote;
+  });
+}
+
+function myName() {
+  fetch('/data').then(response1 => response1.text()).then((welcome) => {
+    document.getElementById('name').innerText = welcome;
+  });
+}
