@@ -13,7 +13,7 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,27 +26,26 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-    private List<String> quotes;
+    private List<String> array;
 
   @Override
   public void init() {
-    quotes = new ArrayList<>();
-    quotes.add("Hapiness lies in the joy of achievement and the thrill of creative effort.  -Franklin Roosevelt");
-    quotes.add("'Do not just aspire to make a living, but aspire to make a difference.  -Denzel Washington");
-    quotes.add("Do not aim for success if you want it; just do what you love and believe in, and it will come naturally.  -David Frost");
-    quotes.add("The key to success is to focus on goals, not obstacles.");
-    quotes.add("Never give up because great things take time");
-    quotes.add("Love the people who saw you when you were invisible to everyone else");
-    quotes.add("If you want to live a happy life, tie it to a goal, not to people or things. -Albert Einstein");
-    quotes.add("Education is the most powerful weapon which you can use to change the world.  -Nelson Mandela");
-    quotes.add("We must accept finite disappointment, but never lose infinite hope.  -Martin Luther King Jr.");
-    quotes.add("To win big, you sometimes have to take big risks.  -Bill Gates");
+    array = new ArrayList<>();
+    array.add("Inspiring story");
+    array.add("Congratulations on your graduation");
+    array.add("Keep up with the great work");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String quote = quotes.get((int) (Math.random() * quotes.size()));
-    response.setContentType("text/html;");
-    response.getWriter().println(quote);
+    String json = convertToJson(array);
+    response.setContentType("application/json;");
+    response.getWriter().println(json);
+  }
+
+  private String convertToJson(List<String> list) {
+    Gson gson = new Gson();
+    String json = gson.toJson(list);
+    return json;
   }
 }

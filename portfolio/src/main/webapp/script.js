@@ -36,14 +36,19 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-function getRandomQuotes() {
-  fetch('/data').then(response => response.text()).then((quote) => {
-    document.getElementById('quote-container').innerText = quote;
+function getPageComments() {
+  fetch('/data').then(response => response.json()).then((list) => {
+    const listElement = document.getElementById('comments-container');
+    listElement.innerHTML = '';
+    for(i = 0; i < list.length; i++) {
+        listElement.appendChild(
+            createListElement('Comment: ' + (i + 1) + " " + list[i]));
+    }
   });
 }
 
-function myName() {
-  fetch('/data').then(response1 => response1.text()).then((welcome) => {
-    document.getElementById('name').innerText = welcome;
-  });
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
