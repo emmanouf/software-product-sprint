@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,30 +23,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-    private List<String> array;
+    private ArrayList<String> commentsList = new ArrayList<>();
 
-  @Override
-  public void init() {
-    array = new ArrayList<>();
-    array.add("Inspiring story");
-    array.add("Congratulations on your graduation");
-    array.add("Keep up with the great work");
-  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String json = convertToJson(array);
+    String text = getParameter(request, "data-input", "");
+    commentsList.add(text);
+    String json = convertToJson(commentsList);
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
 
-  private String convertToJson(List<String> list) {
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    doGet(request, response);
+
+    // Respond with the result.
+    response.setContentType("data/html;");
+    response.getWriter().println(commentsList);
+
+    response.sendRedirect("/index.html");
+  }
+
+  private String convertToJson(ArrayList<String> list) {
     Gson gson = new Gson();
     String json = gson.toJson(list);
     return json;
+  }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }

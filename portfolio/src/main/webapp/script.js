@@ -40,9 +40,13 @@ function getPageComments() {
   fetch('/data').then(response => response.json()).then((list) => {
     const listElement = document.getElementById('comments-container');
     listElement.innerHTML = '';
+
     for(i = 0; i < list.length; i++) {
-        listElement.appendChild(
-            createListElement('Comment: ' + (i + 1) + " " + list[i]));
+        if(list[i] == "") {
+            continue;
+        } else {
+            listElement.innerText = list[i];
+        }
     }
   });
 }

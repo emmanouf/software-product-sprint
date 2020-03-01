@@ -84,9 +84,15 @@
         <p>Click here to see some of my favourite quotes!</p>
         <button onclick="addRandomGreeting()">Motivate Me! </button>
         <div style="font-size:200%;" id="greeting-container"></div>
-        <p>Click here to see comments about the Page:</p>
+        <form action="/data" method="POST">
+            <p>Want to leave a comment? Enter here:</p>
+            <textarea name="data-input"></textarea>
+            <br/><br/>
+            <input type="submit" />
+        </form>
+        <p>Click here to see Page Comments!</p>
         <button onclick="getPageComments()">Comments!</button>
-        <div id="comments-container"></div>
+        <div style="font-size:200%;" id="comments-container"></div>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <a href="https://www.linkedin.com/in/emmanuel-noufele-045657135/"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/emmanouf"><i class="ion-social-github"><i class="fa fa-github"></i></a>
