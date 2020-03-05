@@ -10,6 +10,21 @@ body {
   margin-top: 20px;
   font-size:130%;
 }
+p {
+  font-size: 200%;
+}
+button {
+    font-size: 200%;
+}
+li {
+    font-size: 200%;
+}
+h1 {
+    font-size: 300%;
+}
+h2 {
+    font-size: 300%;
+}
 img.resize {
     max-width: 150%;
     max-height: 150%;

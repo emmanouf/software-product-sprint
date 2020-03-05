@@ -35,3 +35,24 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+function getPageComments() {
+  fetch('/data').then(response => response.json()).then((list) => {
+    const listElement = document.getElementById('comments-container');
+    listElement.innerHTML = '';
+
+    for(i = 0; i < list.length; i++) {
+        if(list[i] == "") {
+            continue;
+        } else {
+            listElement.innerText = list[i];
+        }
+    }
+  });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
