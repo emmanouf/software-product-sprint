@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html>
   <head>
@@ -85,18 +86,34 @@
         <button onclick="addRandomGreeting()">Motivate Me! </button>
         <div style="font-size:200%;" id="greeting-container"></div>
         <form action="/data" method="POST">
-            <p>Want to leave a comment? Enter here:</p>
-            <input style="font-size:200%;" type="text" name="comment"  />
-            <br/>
-            <button>Submit</button>
+        <p>Want to leave a comment? Enter here and select your prefered language.</p>
+        <textarea  style="font-size:200%;" id="text" name="comment"></textarea>
+
+        <select style="font-size:200%;"  id="language">
+            <option value="es">English</option>
+            <option value="zh">Chinese</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+
+        <br/>
+        <button onclick="getPageComments();">Submit</button>
         </form>
         <p>Click here to see Page Comments!</p>
-        <button onclick="getPageComments()">Comments!</button>
+        <button onclick="getPageComments();">Comments!</button>
         <div style="font-size:200%;" id="comments-container"></div>
+        <p></p>
+      <body onload="initMap()">
+         <div id="map"></div>
+        <script>
+        </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCim4kl_9Y7zCW1zeNnpgejSHmyTaxV37g&callback=initMap"
+    async defer></script>
+        <p>This is a Google Map!</p>
+    </body>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <a href="https://www.linkedin.com/in/emmanuel-noufele-045657135/"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/emmanouf"><i class="ion-social-github"><i class="fa fa-github"></i></a>
     </div>
     </center>
   </body>
-</html>
