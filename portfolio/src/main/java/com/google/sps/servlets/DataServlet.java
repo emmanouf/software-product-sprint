@@ -53,20 +53,18 @@ public class DataServlet extends HttpServlet {
     response.getWriter().println(json);
   }
 
+    Entity commentEntity = new Entity("CommentTask");
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     doGet(request, response);
     String comment = request.getParameter("comment");
-    Entity commentEntity = new Entity("CommentTask");
-    commentEntity.setProperty("comment", comment);
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
-
-    // Respond with the result.
-    //response.setContentType("data/html;");
-    //response.getWriter().println(commentsList);
-
+    if(!comment.isEmpty() || !comment.isBlank()) {
+        commentEntity.setProperty("comment", comment);
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        datastore.put(commentEntity);
+    } else {
+        return;
+    }
     response.sendRedirect("/index.html");
   }
 
