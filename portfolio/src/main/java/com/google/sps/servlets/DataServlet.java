@@ -58,12 +58,11 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     doGet(request, response);
     String comment = request.getParameter("comment");
-    if(!comment.isEmpty() || !comment.isBlank()) {
+    if(comment == null || comment.isEmpty() || "".equals(comment.trim())) {   
+    } else {
         commentEntity.setProperty("comment", comment);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(commentEntity);
-    } else {
-        return;
     }
     response.sendRedirect("/index.html");
   }
