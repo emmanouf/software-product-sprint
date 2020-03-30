@@ -58,8 +58,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     doGet(request, response);
     String comment = request.getParameter("comment");
-    if(comment == null || comment.isEmpty() || "".equals(comment.trim())) {   
-    } else {
+    if(comment != null && !comment.trim().isEmpty()) {   
         commentEntity.setProperty("comment", comment);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(commentEntity);
