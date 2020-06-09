@@ -52,11 +52,7 @@ function getPageComments() {
         listElement.innerHTML = '';
 
         for(i = 0; i < list.length; i++) {
-            if(list[i] == "") {
-                continue;
-            } else {
-                listElement.innerText = list[i];
-            }
+            listElement.innerText = list[i];
         }
     });
 }
